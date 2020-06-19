@@ -1,2 +1,54 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3" style="background-color: orange;">
+            <h2>User info</h2>
+
+            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>name</th>
+                        <th><%= @user.name %></th>
+                    </tr>
+                    <tr>
+                        <th>introduction</th>
+                        <th><%= @user.introduction %></th>
+                    </tr>
+                </tbody>
+            </table>
+            <%= link_to "User_Edit", edit_user_path %>
+            
+            <%= form_for @book do |f| %>
+            <h2>New Book</h2>
+            <div class="field">
+            <label for="">Title</label><br>
+            <%= f.text_field :title %>
+            </div>
+            <div class="field">
+            <label for="">Opinion</label><br>
+            <%= f.text_area :body %>
+            </div>
+            <%= f.submit "Create Book" %>
+            <% end %>
+        </div>
+        <div class="col-lg-9" style="background-color: red;">
+            <h2>Books</h2>
+            <table class="table table-hover table-inverse">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Opinion</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

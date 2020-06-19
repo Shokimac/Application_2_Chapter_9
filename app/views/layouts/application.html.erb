@@ -10,14 +10,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
+<header>
+  <li class="">
+    <span>Bookers</span>
+    <%= link_to 'Home'%>
+    <%= link_to 'Users' %>
+    <%= link_to 'Books' %>
+    <%= link_to 'Logout'%>
+  </li>
+</header>
+
 <body>
-  <header>
-    <li class="">
-      <%= link_to 'Home', user_path(current_user.id) %>
-    </li>
-  </header>
+
 
   <%= yield %>
 </body>
+
+<footer>
+  <div class="col-xs-3 col-xs-offset-9">
+    <p>CopyRight Infratop.inc</p>
+  </div>
+</footer>
 
 </html>
