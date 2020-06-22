@@ -1,0 +1,7 @@
+<h2><%= pluralize(user.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+<ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+    
