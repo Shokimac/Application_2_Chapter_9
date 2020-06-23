@@ -1,12 +1,11 @@
-<h1>Edit_User</h1>
-
+<div class="container">
 <div id="error_explanation">
     <% if @user.errors.any? %>
     <%= render 'shared/usererror', user: @user %>
     <% end %>
 </div>
 
-<div class="container">
+
     <h2>User info</h2>
 
     <%= form_for @user do |f| %>
@@ -21,7 +20,7 @@
     </div>
     <div class="field">
         <label for="user_introduction">Introduction</label>
-        <%= f.text_field :introduction %>
+        <%= f.text_area :introduction %>
     </div>
 
     <div class="actions">

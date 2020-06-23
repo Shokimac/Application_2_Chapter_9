@@ -1,6 +1,6 @@
 <h2>User info</h2>
 
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
 
 <table class="table">
     <tbody>
@@ -14,21 +14,23 @@
         </tr>
     </tbody>
 </table>
+<div class="row">
 <% if @user.id == current_user.id %>
-<%= link_to "User_Edit", edit_user_path(user.id) %>
+<%= link_to "", edit_user_path(user.id),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 <% else %>
-<%= link_to "User_Edit", user_path(current_user.id) %>
+<%= link_to "", user_path(current_user.id),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 <% end %>
+</div>
 
 <%= form_for newbook,:url => {controller: "books", action: "create"} do |f| %>
-<h2>New book</h2>
-<div class="field">
+<h2 class="middle_title">New book</h2>
+<div class="field row">
     <label for="">Title</label><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:"col-xs-12" %>
 </div>
-<div class="field">
+<div class="field row">
     <label for="">Opinion</label><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body,class:"col-xs-12" %>
 </div>
-<%= f.submit "Create Book" %>
+<%= f.submit "Create Book", class:"btn btn-primary col-xs-12"%>
 <% end %>

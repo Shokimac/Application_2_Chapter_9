@@ -10,25 +10,41 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<header>
-  <nav class="nav navbar-nav navbar-left">
-    <span>Bookers</span>
-  </nav>
-  <% if user_signed_in? %>
-  <div class="user_nav grid-6">
-    <%= link_to "Home", user_path(current_user.id) %>
-    <%= link_to "Users", users_path %>
-    <%= link_to "Books", books_path %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<header class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span>Bookers</span>
+    </nav>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to " Home", user_path(current_user.id), class:"glyphicon glyphicon-home home" %>
+      </li>
+      <li>
+        <%= link_to " Users", users_path, class:"glyphicon glyphicon-user users" %>
+      </li>
+      <li>
+        <%= link_to " Books", books_path, class:"glyphicon glyphicon-book books" %>
+      </li>
+      <li>
+        <%= link_to " Logout", destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout" %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to " Home", root_path, class:"glyphicon glyphicon-home home"%>
+      </li>
+      <li>
+        <%= link_to " About", home_about_path, class:"glyphicon glyphicon-link about" %>
+      </li>
+      <li>
+        <%= link_to " sign up", new_user_registration_path, class:"glyphicon glyphicon-edit sign_up" %>
+      </li>
+      <li>
+        <%= link_to " Login", new_user_session_path, class:"glyphicon glyphicon-log-in sign_in" %>
+      </li>
+      <% end %>
+    </ul>
   </div>
-  <% else %>
-  <div class="grid-6">
-    <%= link_to "Home", root_path%>
-    <%= link_to "About", home_about_path %>
-    <%= link_to "Sign Up", new_user_registration_path, class: 'post' %>
-    <%= link_to "Login", new_user_session_path, class: 'post' %>
-  </div>
-  <% end %>
 </header>
 
 <body>
@@ -36,8 +52,12 @@
 </body>
 
 <footer>
-  <div class="col-xs-3 col-xs-offset-9">
-    <p>CopyRight Infratop.inc</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-9">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
   </div>
 </footer>
 
